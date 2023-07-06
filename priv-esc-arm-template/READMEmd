@@ -1,1 +1,11 @@
+# Priv Esc using Managed Identity
+
+PreReq:
+- [x] User-Assigned Managed Identity has privileged role.
+- [x] User Account with permission to deploy resources
+- [x] USer has permissions on User Assigned Managed identity
+
+> Managed Identity has privilged permissions on Subscription or Management Group level
+> User has Contributor permissions to Managed Identity (required to attach to resource) / permissions to deploy resources in limited scope.
+
 
