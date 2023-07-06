@@ -8,4 +8,4 @@ PreReq:
 > Managed Identity has privilged permissions on Subscription or Management Group level
 > User has Contributor permissions to Managed Identity (required to attach to resource) / permissions to deploy resources in limited scope.
 
-
+![Alt text](image.png)
