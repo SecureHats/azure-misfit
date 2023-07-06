@@ -13,7 +13,7 @@
         },
         "guid": {
             "type": "string",
-            "defaultValue": "[newGuid(managedIdentityName)]"
+            "defaultValue": "40310b4c-ec37-4331-8f5a-d320618b5382"
         }
     },
     "resources": [
