@@ -10,7 +10,7 @@ param (
     [string]$roleDefinition = '8e3af657-a8ff-443c-a75c-2fe8c4bcb635',
 
     [Parameter()]
-    [string]$guid,
+    [string]$guid
 )
 
 $token = (Get-AzAccessToken).token
