@@ -23,10 +23,11 @@ $payload = @{
 } | ConvertTo-Json -Compress
 
 Write-Host $payload
+$guid = (New-Guid).Guid
 
 $requestParam = @{
     uri         = "https://management.azure.com/subscriptions/$($subscriptionId)/providers/Microsoft.Authorization/roleAssignments/$($guid)?api-version=2022-04-01"
-    headers     = @{"Authorization"="Bearer $token"}
+    headers     = @{"Authorization" = "Bearer $token"}
     body        = $payload
     contenttype = 'application/json'
     method      = 'PUT'
@@ -35,4 +36,8 @@ $requestParam = @{
 Write-Host "Request Parameters"
 Write-Output $requestParam
 
+try {
 $result = Invoke-RestMethod @requestParam
+} catch {
+    write-output $result
+}
