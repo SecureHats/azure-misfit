@@ -11,8 +11,6 @@ param (
 )
 
 $token = (Get-AzAccessToken).token
-write-host "Retrieved Access Token"
-write-output $token
 
 $payload = @{
     properties = @{
@@ -37,4 +35,4 @@ Write-Host "Request Parameters"
 Write-Output $requestParam
 
 $result = Invoke-RestMethod @requestParam
-write-output $result.properties
+write-output $result
