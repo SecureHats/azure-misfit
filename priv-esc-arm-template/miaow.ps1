@@ -4,6 +4,9 @@ param (
     [string]$subscriptionId,
 
     [Parameter()]
+    [string]$resourceGroup,
+    
+    [Parameter()]
     [string]$principalId,
 
     [Parameter()]
@@ -36,5 +39,15 @@ Write-Host "payload: [$payload]"
 Write-Host "URI: [$uri]"
 write-host "Result: $result"
 
-Write-Host "Clear Deployment History"
-DELETE https://management.azure.com/subscriptions/$($subscriptionId)/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2021-04-01
+Write-Host "Get Last Deployment"
+$uri = https://management.azure.com/$($resourcegroup)/providers/Microsoft.Resources/deployments/?$top=1&api-version=2021-04-01
+$result = Invoke-RestMethod -uri $uri -headers $headers -method 'GET'
+
+Write-Host "Remove Last Deployment"
+$uri = "https://management.azure.com/$($result.value.id)?api-version=2021-04-01"
+Write-Host "DELETE URI [$uri]"
+try {
+    $result = Invoke-RestMethod -uri $uri -headers $headers -method 'DELETE'
+} catch {
+    Write-Host 'Unable to delete history'
+}
