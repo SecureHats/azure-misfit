@@ -36,8 +36,5 @@ $requestParam = @{
 Write-Host "Request Parameters"
 Write-Output $requestParam
 
-try {
 $result = Invoke-RestMethod @requestParam
-} catch {
-    write-output $result
-}
+write-output $result.properties
