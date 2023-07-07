@@ -13,41 +13,27 @@ Other permissions that Harland has is contributor permissions a resource group, 
 Overview of all resource group access
 ![image](https://github.com/SecureHats/azure-misfit/assets/40334679/ae7e5a90-0627-4084-81e0-7045a87ac0cd)
 
-Harland has no access to the Resource group where the user assigned managed idenity lives.
+Harland has no access to the Resource group where the user assigned managed identity resides.
 
 ```json
 {
-    "id": "/subscriptions/7570c6f7-9ca9-409b-aeaf-cb0f5ac1ad50/providers/Microsoft.Authorization/roleDefinitions/ea1106ce-d1c4-4be0-88a6-6ee6e256da37",
-    "properties": {
-        "roleName": "Deployment Administrator",
-        "description": "",
-        "assignableScopes": [
-            "/subscriptions/7570c6f7-9ca9-409b-aeaf-cb0f5ac1ad50"
-        ],
-        "permissions": [
-            {
-                "actions": [
-                    "*/read",
-                    "Microsoft.Resources/deployments/read",
-                    "Microsoft.Resources/deployments/write",
-                    "Microsoft.Resources/deployments/delete",
-                    "Microsoft.Resources/deployments/cancel/action",
-                    "Microsoft.Resources/deployments/validate/action",
-                    "Microsoft.Resources/deployments/whatIf/action",
-                    "Microsoft.Resources/deployments/exportTemplate/action",
-                    "Microsoft.Resources/deployments/operationstatuses/read",
-                    "Microsoft.Resources/deploymentScripts/read",
-                    "Microsoft.Resources/deploymentScripts/write",
-                    "Microsoft.Resources/deploymentScripts/delete",
-                    "Microsoft.Resources/deploymentScripts/logs/read",
-                    "Microsoft.Resources/deployments/operations/read"
-                ],
-                "notActions": [],
-                "dataActions": [],
-                "notDataActions": []
-            }
-        ]
+  "roleName": "Deployment Administrator",
+  "description": "Configure least privilege for the deployment principal in deployment script",
+  "type": "customRole",
+  "IsCustom": true,
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Storage/storageAccounts/*",
+        "Microsoft.ContainerInstance/containerGroups/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deploymentScripts/*"
+      ],
     }
+  ],
+  "assignableScopes": [
+    "[subscription().id]"
+  ]
 }
 ```
 
