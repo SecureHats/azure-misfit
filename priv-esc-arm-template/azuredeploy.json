@@ -12,6 +12,10 @@
         "principalId": {
             "type": "string",
             "defaultValue": "301dfac7-8f45-48ac-9868-e1f0e875385c"
+        },
+        "guid": {
+            "type": "string",
+            "defaultValue": "[newGuid()]"
         }
     },
     "resources": [
