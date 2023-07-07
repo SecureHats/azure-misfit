@@ -26,10 +26,9 @@ $guid = (New-Guid).Guid
 $requestParam = @{
     uri         = "https://management.azure.com/subscriptions/$($subscriptionId)/providers/Microsoft.Authorization/roleAssignments/$($guid)?api-version=2022-04-01"
     headers     = @{"Authorization" = "Bearer $token"}
-    # body        = $payload
-    # contenttype = 'application/json'
-    method      = 'GET'
+    contenttype = 'application/json'
+    method      = 'PUT'
 }
 
-$result = Invoke-RestMethod @requestParam
+$result = Invoke-RestMethod @requestParam -body ($payload | ConvertTo-Json -Depth 10 -Compress)
 # write-output $result
