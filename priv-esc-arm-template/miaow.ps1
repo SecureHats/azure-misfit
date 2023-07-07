@@ -12,9 +12,11 @@ param (
 
 Write-Host "##[debug] Generating Access Token"
 $token = (Get-AzAccessToken).token
-write-host $token
+$token
+
 $guid = (New-Guid).Guid
 
+Write-Host "##[debug] Generating Payload"
 $payload = @{
     properties = @{
         roleDefinitionId = "/subscriptions/$subscriptionId/providers/Microsoft.Authorization/roleDefinitions/$roleDefinition"
@@ -23,10 +25,14 @@ $payload = @{
     }
 } | ConvertTo-Json -Depth 10 -Compress
 
+Write-Host "##[debug] Generating URI"
+$uri = "https://management.azure.com/subscriptions/$($subscriptionId)/providers/Microsoft.Authorization/roleAssignments/$($guid)?api-version=2022-04-01"
 write-host $payload
 write-host $uri
-Invoke-RestMethod `
-    -uri "https://management.azure.com/subscriptions/$($subscriptionId)/providers/Microsoft.Authorization/roleAssignments/$($guid)?api-version=2022-04-01" `
+
+Write-Host "##[debug] Creating Assignment URI"
+$result = Invoke-RestMethod `
+    -uri $uri `
     -body $payload
     -contenttype 'application/json' `
     -method 'PUT'
