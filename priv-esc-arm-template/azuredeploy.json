@@ -10,8 +10,7 @@
             "defaultValue": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635"
         },
         "principalId": {
-            "type": "string",
-            "defaultValue": "301dfac7-8f45-48ac-9868-e1f0e875385c"
+            "type": "string"
         },
         "guid": {
             "type": "string",
