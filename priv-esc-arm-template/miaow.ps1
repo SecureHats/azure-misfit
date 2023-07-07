@@ -20,7 +20,6 @@ $payload = @{
     }
 } | ConvertTo-Json -Depth 10 -Compress
 
-Write-Host $payload
 $guid = (New-Guid).Guid
 
 $requestParam = @{
