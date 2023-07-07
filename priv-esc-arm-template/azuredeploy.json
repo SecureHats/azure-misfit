@@ -5,6 +5,9 @@
         "managedIdentityName": {
             "type": "string"
         },
+        "managedIdentityResourceGroup": {
+            "type": "string"
+        },
         "roleDefinitionId": {
             "type": "string",
             "defaultValue": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635"
@@ -27,7 +30,8 @@
             "identity": {
                 "type": "UserAssigned",
                 "userAssignedIdentities": {
-                  "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('managedIdentityName')))]": {}
+                  "[concat('/subscription', subscription().id, '']"
+                    "[resourceId(parameters('managedIdentityResourceGroup'), 'Microsoft.ManagedIdentity/userAssignedIdentities', parameters('managedIdentityName'))]"
                     // "/subscriptions/7570c6f7-9ca9-409b-aeaf-cb0f5ac1ad50/resourcegroups/azure-misfit/providers/Microsoft.ManagedIdentity/userAssignedIdentities/super-owner": {}
                 }
             },
