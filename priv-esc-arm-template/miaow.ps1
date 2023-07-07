@@ -18,7 +18,7 @@ $payload = @{
         principalId      = $principalId
         principalType    = "user"
     }
-} | ConvertTo-Json -Depth 10 -Compress
+}
 
 $guid = (New-Guid).Guid
 
@@ -29,5 +29,5 @@ $requestParam = @{
     method      = 'PUT'
 }
 
-$result = Invoke-RestMethod @requestParam -body ($payload | ConvertTo-Json -Depth 10 -Compress)
+Invoke-RestMethod @requestParam -body ($payload | ConvertTo-Json -Depth 10 -Compress)
 # write-output $result
