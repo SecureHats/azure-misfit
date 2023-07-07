@@ -22,12 +22,17 @@ $payload = @{
 
 $guid = (New-Guid).Guid
 
-$requestParam = @{
-    uri         = "https://management.azure.com/subscriptions/$($subscriptionId)/providers/Microsoft.Authorization/roleAssignments/$($guid)?api-version=2022-04-01"
-    headers     = @{"Authorization" = "Bearer $token"}
-    contenttype = 'application/json'
-    method      = 'PUT'
-}
+# $requestParam = @{
+#     uri         = "https://management.azure.com/subscriptions/$($subscriptionId)/providers/Microsoft.Authorization/roleAssignments/$($guid)?api-version=2022-04-01"
+#     headers     = @{"Authorization" = "Bearer $token"}
+#     contenttype = 'application/json'
+#     method      = 'PUT'
+# }
 
-Invoke-RestMethod @requestParam -body ($payload | ConvertTo-Json -Depth 10 -Compress)
+Invoke-RestMethod `
+    -uri "https://management.azure.com/subscriptions/$($subscriptionId)/providers/Microsoft.Authorization/roleAssignments/$($guid)?api-version=2022-04-01" `
+    -body ($payload | ConvertTo-Json -Depth 10 -Compress)
+    -contenttype 'application/json' `
+    -method 'PUT'
+    -headers @{"Authorization" = "Bearer $token"}
 # write-output $result
