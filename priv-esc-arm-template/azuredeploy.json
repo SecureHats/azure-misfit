@@ -31,7 +31,7 @@
                 "type": "UserAssigned",
                 "userAssignedIdentities": {
                   "[concat('/subscription', subscription().id, '']"
-                    "[resourceId(parameters('managedIdentityResourceGroup'), 'Microsoft.ManagedIdentity/userAssignedIdentities', parameters('managedIdentityName'))]"
+                    "[resourceId(parameters('managedIdentityResourceGroup'), 'Microsoft.ManagedIdentity/userAssignedIdentities', parameters('managedIdentityName'))]": {}
                     // "/subscriptions/7570c6f7-9ca9-409b-aeaf-cb0f5ac1ad50/resourcegroups/azure-misfit/providers/Microsoft.ManagedIdentity/userAssignedIdentities/super-owner": {}
                 }
             },
