@@ -40,7 +40,7 @@ Write-Host "URI: [$uri]"
 write-host "Result: $result"
 
 Write-Host "Get Last Deployment"
-$uri = https://management.azure.com/$($resourcegroup)/providers/Microsoft.Resources/deployments/?$top=1&api-version=2021-04-01
+$uri = "https://management.azure.com/$($resourcegroup)/providers/Microsoft.Resources/deployments/?$top=1&api-version=2021-04-01"
 $result = Invoke-RestMethod -uri $uri -headers $headers -method 'GET'
 
 Write-Host "Remove Last Deployment"
