@@ -12,6 +12,7 @@ param (
 
 Write-Host "##[debug] Generating Access Token"
 $token = (Get-AzAccessToken).token
+write-host $token
 $guid = (New-Guid).Guid
 
 $payload = @{
@@ -20,11 +21,13 @@ $payload = @{
         principalId      = $principalId
         principalType    = "user"
     }
-}
+} | ConvertTo-Json -Depth 10 -Compress
 
+write-host $payload
+write-host $uri
 Invoke-RestMethod `
     -uri "https://management.azure.com/subscriptions/$($subscriptionId)/providers/Microsoft.Authorization/roleAssignments/$($guid)?api-version=2022-04-01" `
-    -body ($payload | ConvertTo-Json -Depth 10 -Compress)
+    -body $payload
     -contenttype 'application/json' `
     -method 'PUT'
     -headers @{"Authorization" = "Bearer $token"}
