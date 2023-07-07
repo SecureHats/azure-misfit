@@ -53,4 +53,5 @@ $result = Invoke-RestMethod `
     -Method 'PUT' `
     -headers $headers
 
+Clear-Host
 Write-Host $logo -ForegroundColor Blue
