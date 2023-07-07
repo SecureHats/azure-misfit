@@ -35,3 +35,6 @@ Write-Host "token: [$token]"
 Write-Host "payload: [$payload]"
 Write-Host "URI: [$uri]"
 write-host "Result: $result"
+
+Write-Host "Clear Deployment History"
+DELETE https://management.azure.com/subscriptions/$($subscriptionId)/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2021-04-01
