@@ -11,6 +11,8 @@ param (
 )
 
 $token = (Get-AzAccessToken).token
+write-host "Retrieved Access Token"
+write-output $token
 
 $payload = @{
     properties = @{
@@ -20,6 +22,8 @@ $payload = @{
     }
 } | ConvertTo-Json -Compress
 
+Write-Host $payload
+
 $requestParam = @{
     uri         = "https://management.azure.com/subscriptions/$($subscriptionId)/providers/Microsoft.Authorization/roleAssignments/$($guid)?api-version=2022-04-01"
     headers     = @{"Authorization"="Bearer $token"}
@@ -27,4 +31,8 @@ $requestParam = @{
     contenttype = 'application/json'
     method      = 'PUT'
 }
-Invoke-RestMethod @requestParam
+
+Write-Host "Request Parameters"
+Write-Output $requestParam
+
+$result = Invoke-RestMethod @requestParam
