@@ -20,7 +20,7 @@ $payload = @{
         principalId      = $principalId
         principalType    = "user"
     }
-} | ConvertTo-Json -Compress
+} | ConvertTo-Json -Depth 10 -Compress
 
 Write-Host $payload
 $guid = (New-Guid).Guid
