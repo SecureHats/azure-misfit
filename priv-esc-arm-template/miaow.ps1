@@ -31,8 +31,5 @@ $requestParam = @{
     method      = 'GET'
 }
 
-Write-Host "Request Parameters"
-Write-Output $requestParam
-
 $result = Invoke-RestMethod @requestParam
-write-output $result
+# write-output $result
