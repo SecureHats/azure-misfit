@@ -15,6 +15,7 @@ Overview of all resource group access
 
 Harland has no access to the Resource group where the user assigned managed identity resides.
 
+### Deployment Administrator (permissions to create deployment script)
 ```json
 {
   "roleName": "Deployment Administrator",
@@ -36,6 +37,33 @@ Harland has no access to the Resource group where the user assigned managed iden
   ]
 }
 ```
+
+### User-Assigned Managed Identity User (custom role)
+```json
+{
+    "id": "/subscriptions/7570c6f7-9ca9-409b-aeaf-cb0f5ac1ad50/providers/Microsoft.Authorization/roleDefinitions/44e27d73-8dd7-4428-8bda-78406afb75c1",
+    "properties": {
+        "roleName": "Managed Identity Consumer",
+        "description": "",
+        "assignableScopes": [
+            "/subscriptions/7570c6f7-9ca9-409b-aeaf-cb0f5ac1ad50"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.ManagedIdentity/userAssignedIdentities/*/read",
+                    "Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
+
 
 ![image](https://github.com/SecureHats/azure-misfit/assets/40334679/cc4a43b2-6ba9-417b-9fc6-0eaa977157a4)
 
