@@ -29,8 +29,7 @@ M::::::M     MMMMM     M::::::M i::::i a::::a    a:::::ao::::o     o::::o     w:
 M::::::M               M::::::Mi::::::ia::::a    a:::::ao:::::ooooo:::::o      w:::::::w       w:::::::w        
 M::::::M               M::::::Mi::::::ia:::::aaaa::::::ao:::::::::::::::o       w:::::w         w:::::w         
 M::::::M               M::::::Mi::::::i a::::::::::aa:::aoo:::::::::::oo         w:::w           w:::w          
-MMMMMMMM               MMMMMMMMiiiiiiii  aaaaaaaaaa  aaaa  ooooooooooo            www             www           
-                                                                                                                "
+MMMMMMMM               MMMMMMMMiiiiiiii  aaaaaaaaaa  aaaa  ooooooooooo            www             www"
                                                                                                                 
 $token = (Get-AzAccessToken).token
 $headers = @{"Authorization"="Bearer $token"}
