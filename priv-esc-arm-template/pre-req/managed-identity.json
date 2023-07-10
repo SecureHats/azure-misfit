@@ -5,6 +5,12 @@
         "managedIdentityName": {
             "defaultValue": "super-owner",
             "type": "string"
+        },
+        "roleGuid": {
+            "type": "string",
+            "defaultValue": "[Guid]"
+
+
         }
     },
     "variables": {
