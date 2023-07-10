@@ -1,6 +1,7 @@
 # Project Miaow (Managed Identity Adds Owner)
 
-![image](https://github.com/SecureHats/azure-misfit/assets/40334679/20947a9e-ec9a-4a3f-951e-0759eb043789)  
+![image](https://github.com/SecureHats/azure-misfit/assets/40334679/256fe70f-02cc-469f-b264-bf942f156a47)
+
 
 Mr. KFC Harland Sanders has `read` and `assign` permissions on the User-Assigned Managed Identity
 
