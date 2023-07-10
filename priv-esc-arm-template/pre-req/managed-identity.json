@@ -8,7 +8,7 @@
         },
         "roleGuid": {
             "type": "string",
-            "defaultValue": "[Guid]"
+            "defaultValue": "[Guid()]"
 
 
         }
