@@ -34,7 +34,7 @@
             ],
             "properties": {
                 "roleDefinitionId": "[variables('UserAccessAdmin')]",
-                "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('managedIdentityName')), '2018-11-30', 'Full').properties.principalId]"
+                "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('managedIdentityName')), '2018-11-30', 'Full').properties.principalId]"
             }
         }
     ]
