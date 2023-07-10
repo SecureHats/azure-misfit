@@ -25,17 +25,17 @@
             "name": "[parameters('managedIdentityName')]",
             "location": "westeurope"
         },
-        {
-            "type": "Microsoft.Authorization/roleAssignments",
-            "apiVersion": "2020-04-01-preview",
-            "name": "[parameters('roleGuid')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('managedIdentityName'))]"
-            ],
-            "properties": {
-                "roleDefinitionId": "[variables('UserAccessAdmin')]",
-                "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('managedIdentityName')), '2018-11-30', 'Full').properties.principalId]"
-            }
-        }
+        // {
+        //    "type": "Microsoft.Authorization/roleAssignments",
+        //    "apiVersion": "2020-04-01-preview",
+        //    "name": "[parameters('roleGuid')]",
+        //    "dependsOn": [
+        //        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('managedIdentityName'))]"
+        //    ],
+        //    "properties": {
+        //        "roleDefinitionId": "[variables('UserAccessAdmin')]",
+        //        "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('managedIdentityName')), '2018-11-30', 'Full').properties.principalId]"
+        //    }
+        // }
     ]
 }
