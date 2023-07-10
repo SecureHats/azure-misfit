@@ -1,3 +1,6 @@
+
+![image](https://github.com/SecureHats/azure-misfit/assets/40334679/b9eb2782-dac0-4e1f-9252-cfaf346c3259)
+
 # Project Miaow (Managed Identity Adds Owner)
 
 ![image](https://github.com/SecureHats/azure-misfit/assets/40334679/256fe70f-02cc-469f-b264-bf942f156a47)
