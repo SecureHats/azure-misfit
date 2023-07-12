@@ -2,9 +2,6 @@
 param (
     [Parameter()]
     [string]$subscriptionId,
-
-    [Parameter()]
-    [string]$resourceGroup,
     
     [Parameter()]
     [string]$principalId,
